@@ -1,0 +1,2 @@
+REM 将所有依赖包添加到cp参数中
+java.exe -Dfile.encoding=UTF-8 -classpath .\ibda-dataanalysis-1.0-SNAPSHOT.jar;.\tablesaw-core-0.42.0.jar;.\guava-30.0-jre.jar;.\failureaccess-1.0.1.jar;.\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;.\jsr305-3.0.2.jar;.\checker-qual-3.5.0.jar;.\error_prone_annotations-2.3.4.jar;.\j2objc-annotations-1.3.jar;.\commons-math3-3.6.1.jar;.\fastutil-8.3.0.jar;.\RoaringBitmap-0.8.12.jar;.\shims-0.8.12.jar;.\univocity-parsers-2.8.4.jar;.\icu4j-65.1.jar;.\classgraph-4.8.60.jar;.\slf4j-api-1.7.30.jar; net.ibda.dataanalysis.firstapp.FirstApp
