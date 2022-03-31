@@ -8,6 +8,10 @@ import com.yahoo.labs.samoa.instances.Instance;
 
 import java.io.IOException;
 
+/**
+ * 使用MOA实现stream数据的数据挖掘
+ * https://moa.cms.waikato.ac.nz/
+ */
 public class MOA {
     public void run(int numInstances, boolean isTesting) {
         Classifier learner = new HoeffdingTree();

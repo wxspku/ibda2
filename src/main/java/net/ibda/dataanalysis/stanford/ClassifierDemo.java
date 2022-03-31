@@ -17,6 +17,7 @@ import edu.stanford.nlp.util.Pair;
 
 /**
  * 使用斯坦福分类器实现自动分类，最大熵模型
+ * https://nlp.stanford.edu/software/
  */
 public class ClassifierDemo {
 

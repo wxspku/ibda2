@@ -22,6 +22,7 @@ import net.sf.javaml.tools.data.FileHandler;
 
 /**
  * 使用java-ml类库实现自动分类、聚类
+ * 一个早期的机器学习类库，目前已停更 http://java-ml.sourceforge.net/
  */
 public class JavaMachineLearning {
 
