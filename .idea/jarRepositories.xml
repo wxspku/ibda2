@@ -2,6 +2,16 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="sonatype-nexus-snapshots" />
+      <option name="name" value="Sonatype Nexus Snapshots" />
+      <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="M2-2" />
+      <option name="name" value="M2-2" />
+      <option name="url" value="https://s01.oss.sonatype.org/content/repositories/orgdeeplearning4j-1034" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
@@ -10,6 +20,11 @@
       <option name="id" value="uni-jena" />
       <option name="name" value="uni-jena" />
       <option name="url" value="https://bio.informatik.uni-jena.de/repository/libs-release-oss/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Clojars" />
+      <option name="name" value="Clojars" />
+      <option name="url" value="https://clojars.org/repo/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -35,6 +50,16 @@
       <option name="id" value="TUDelft" />
       <option name="name" value="TUDelft" />
       <option name="url" value="https://simulation.tudelft.nl/maven/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="M2-1" />
+      <option name="name" value="M2-1" />
+      <option name="url" value="https://s01.oss.sonatype.org/content/repositories/orgdeeplearning4j-1032" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="M2" />
+      <option name="name" value="M2" />
+      <option name="url" value="https://s01.oss.sonatype.org/content/repositories/orgdeeplearning4j-1019" />
     </remote-repository>
   </component>
 </project>

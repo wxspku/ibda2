@@ -10,6 +10,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\dataset\weka\weather.numeric.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\dataset\weka\weather.numeric.test.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\main\resources\data\baseball.csv">
           <value>
             <Attribute>

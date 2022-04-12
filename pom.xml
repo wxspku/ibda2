@@ -9,8 +9,23 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <dl4j-master.version>1.0.0-M2</dl4j-master.version>
+        <!-- Change the nd4j.backend property to nd4j-cuda-X-platform to use CUDA GPUs -->
+        <!-- <nd4j.backend>nd4j-cuda-10.2-platform</nd4j.backend> -->
+        <nd4j.backend>nd4j-native</nd4j.backend>
+        <java.version>1.8</java.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven.minimum.version>3.3.1</maven.minimum.version>
+        <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+        <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
+        <jcommon.version>1.0.23</jcommon.version>
+        <jfreechart.version>1.0.13</jfreechart.version>
+        <logback.version>1.1.7</logback.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.8.0-M1</junit.version>
+        <javacv.version>1.5.5</javacv.version>
     </properties>
     <dependencies>
         <!--xml sax parse -->
@@ -70,14 +85,6 @@
             <scope>system</scope>
             <systemPath>${basedir}/lib/ajt-2.9.jar</systemPath>
         </dependency>
-        <!--stanford-classifier jar from lib directory-->
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-classifier</artifactId>
-            <version>4.2.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/stanford-classifier-4.2.0.jar</systemPath>
-        </dependency>
 
         <!--mulan jar from lib directory http://mulan.sourceforge.net/-->
         <!-- https://mvnrepository.com/artifact/net.sf.meka.thirdparty/mulan -->
@@ -95,15 +102,6 @@
             <version>1.5.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/mulan-dependency.jar</systemPath>
-        </dependency>
-
-        <!--stanford-classifier jar from lib directory-->
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-classifier</artifactId>
-            <version>4.2.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/stanford-classifier-4.2.0.jar</systemPath>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.moa/moa -->
@@ -130,6 +128,16 @@
             <artifactId>opennlp-uima</artifactId>
             <version>1.9.4</version>
         </dependency>
+
+        <!--stanford-classifier jar from lib directory-->
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-classifier</artifactId>
+            <version>4.2.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/stanford-classifier-4.2.0.jar</systemPath>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/edu.stanford.nlp/stanford-corenlp -->
         <dependency>
             <groupId>edu.stanford.nlp</groupId>
@@ -152,6 +160,95 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/jdk.tools/jdk.tools
+        <dependency>
+            <groupId>jdk.tools</groupId>
+            <artifactId>jdk.tools</artifactId>
+            <version>1.7</version>
+            <scope>system</scope>
+        </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.apache.mahout/mahout-core -->
+        <dependency>
+            <groupId>org.apache.mahout</groupId>
+            <artifactId>mahout-core</artifactId>
+            <version>0.9</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>jdk.tools</groupId>
+                    <artifactId>jdk.tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.mahout/mahout-math -->
+        <dependency>
+            <groupId>org.apache.mahout</groupId>
+            <artifactId>mahout-math</artifactId>
+            <version>0.13.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>jdk.tools</groupId>
+                    <artifactId>jdk.tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.mahout/mahout-examples -->
+        <dependency>
+            <groupId>org.apache.mahout</groupId>
+            <artifactId>mahout-examples</artifactId>
+            <version>0.13.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>jdk.tools</groupId>
+                    <artifactId>jdk.tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib
+             使用新版本将导致运行报错，直接使用老版本，并只支持JDK 8 版本
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.13</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.10</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.deeplearning4j/deeplearning4j-nlp -->
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-nlp</artifactId>
+            <version>1.0.0-M2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.deeplearning4j/deeplearning4j-examples -->
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-examples</artifactId>
+            <version>0.0.3.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.nd4j/nd4j-native -->
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-native</artifactId>
+            <version>1.0.0-M2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.datavec/datavec-api -->
+        <dependency>
+            <groupId>org.datavec</groupId>
+            <artifactId>datavec-api</artifactId>
+            <version>1.0.0-M2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/de.erichseifert.gral/gral-core visualization-->
+        <dependency>
+            <groupId>de.erichseifert.gral</groupId>
+            <artifactId>gral-core</artifactId>
+            <version>0.11</version>
+        </dependency>
+
+
     </dependencies>
     <repositories>
         <repository>
@@ -162,7 +259,43 @@
             <id>TUDelft</id>
             <url>https://simulation.tudelft.nl/maven/</url>
         </repository>
-
+        <repository>
+            <id>Clojars</id>
+            <url>https://clojars.org/repo/</url>
+        </repository>
+        <repository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>  <!-- Optional, update daily -->
+            </snapshots>
+        </repository>
+        <repository>
+            <id>M2</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/orgdeeplearning4j-1019</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>M2-1</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/orgdeeplearning4j-1032</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>M2-2</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/orgdeeplearning4j-1034</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
     </repositories>
     <build>
         <plugins>
